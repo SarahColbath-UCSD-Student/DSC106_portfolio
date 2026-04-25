@@ -89,11 +89,11 @@ div {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 1em;
-    background-color: oklch(95% 0.01 205);
+    background-color: color-mix(in oklch, oklch(80% 0.01 205), canvas 85%);
 
     article.header {
       font-weight: bold;
-      background-color: oklch(80% 0.01 205);
+      background-color: color-mix(in oklch, oklch(80% 0.01 205), canvas 85%);
     }
 
     article {

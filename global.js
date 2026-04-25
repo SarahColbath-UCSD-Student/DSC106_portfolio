@@ -32,10 +32,7 @@ for (let p of pages) {
   if (a.host === location.host && a.pathname === location.pathname) {
     a.classList.add('current');
   }
-  //issue where in preview the first time I open it, it wont show the underline
-  //console.log(a.pathname);
-  //console.log(location.pathname);
-  if (a.host !== location.host && a.pathname === location.pathname) {
+  if (a.host !== location.host) {
     a.target = "_blank";
   }
   nav.append(a);

@@ -77,11 +77,12 @@ let form = document.querySelector("form");
 
 form?.addEventListener('submit', function (event) {
   const data = new FormData(form);
-  let url = form.action;
+  let url = form.action + '?';
   for (let [name, value] of data) {  
-    url = url + '?' + name + '=' + value;
+    url = url + name + '=' + value + '&';
     console.log(name, value);
   }
+  url = url.substring(0, url.length - 1);
   url = url + '?';
   location.href = url;
   console.log(url);

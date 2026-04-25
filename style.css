@@ -1,0 +1,129 @@
+html { 
+  --color-accent: oklch(87.922% 0.09219 69.815);
+  accent-color: var(--color-accent); 
+  color-scheme: dark;
+}
+
+body {
+  /* Set line height to 1.5 times the font size
+	   and use the OS’s UI font as the website font
+	 */
+  font: 100%/1.5 system-ui;
+  max-width: 100ch;
+  margin-inline: auto;
+  padding: 0px 10px;
+}
+
+nav {
+  --border-color: oklch(50% 10% 200 / 40%);
+  display: flex;
+  margin-top: 2em;
+  margin-bottom: 10px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: var(--border-color);
+
+  ul, li {
+    display: contents;
+  }
+}
+
+a {
+  flex: 1;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+
+  &.current {
+    font-weight: bold;
+    border-bottom-style: solid;
+    border-bottom-width: 0.4em;
+    border-bottom-color: var(--border-color);
+  }
+
+  &:hover { 
+    border-bottom-style: solid;
+    border-bottom-width: 0.4em;
+    background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+    border-bottom-color: var(--color-accent);
+  }
+}
+
+form {
+  display:grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em;
+
+  label {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 1 / -1;
+  }
+
+  /*decided on a smaller submit button as I subjectively believe it looks nicer*/
+  button {
+    grid-column: 2 / -1;
+  }
+}
+
+div {
+  &.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+    gap: 1em;
+
+    article {
+      grid-template-rows: subgrid;
+      grid-row: span 3;
+    }
+
+    h2 {
+      margin: 0;
+      height: 80px; /* ensuring that titles stay aligned when the word wrapping is strange */
+    }
+  }
+
+  &.work-history {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1em;
+    background-color: oklch(95% 0.01 205);
+
+    article.header {
+      font-weight: bold;
+      background-color: oklch(80% 0.01 205);
+    }
+
+    article {
+      display: grid;
+      grid-template-columns: subgrid;
+      grid-column: span 5;
+      padding-left: 0.5em;
+      padding-right: 0.5em;
+    }
+  }
+}
+
+h1 {
+  font-size: 400%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+label {
+  &.color-scheme {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-family: inherit;
+    font-size: 80%;
+  }
+}
+select {
+  font-size: 80%;
+}

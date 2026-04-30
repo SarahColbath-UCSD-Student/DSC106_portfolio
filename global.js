@@ -99,16 +99,35 @@ export async function fetchJSON(url) {
   }
 }
 
-export function renderProjects(projects, containerElement) {
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
   containerElement.innerHTML = '';
   for (let project of projects)
   {
     const article = document.createElement('article');
+    const headings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+    if (!project.title)
+    {
+      project.title = "Title Pending";
+    }
+    if (!project.image)
+    {
+      project.image = "https://vis-society.github.io/labs/2/images/empty.svg";
+    }
+    if (!project.description)
+    {
+      project.description = "Description coming soon!";
+    }
+    if (!headings.includes(headingLevel))
+    {
+      headingLevel = 'h2';
+    }
     article.innerHTML = `
-      <h3>${project.title}</h3>
+      <${headingLevel} class='project'>${project.title}</${headingLevel}>
       <img src="${project.image}" alt="${project.title}">
       <p>${project.description}</p>
     `;
     containerElement.appendChild(article);
   }
 }
+
+console.log(document.getElementsByClassName('project').length);

@@ -1,62 +1,62 @@
 [
-  {
-    "title": "Lorem ipsum dolor sit.",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora possimus quisquam aut nobis veritatis cumque, est debitis eius a ipsum dicta quaerat ratione recusandae, beatae suscipit quae consequuntur iste accusantium?"
-  },
-  {
-    "title": "Necessitatibus veniam minima inventore.",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Pariatur quos culpa maxime eius numquam sunt dignissimos placeat eaque. Exercitationem ipsum architecto, quos accusantium saepe repudiandae, veniam odio possimus est dolorem cum mollitia eum laborum ut quia enim reprehenderit!"
-  },
-  {
-    "title": "Neque officia maxime alias?",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Optio, ullam repudiandae cupiditate itaque quasi impedit iure ratione voluptates fugiat consequatur delectus vitae expedita. Impedit, perferendis perspiciatis esse, nesciunt maxime quo magnam quos iusto aut dolores, accusantium ea assumenda!"
-  },
-  {
-    "title": "Cupiditate, rerum officiis. Quas!",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Perferendis quas eaque velit nostrum repudiandae id nisi facere recusandae, rerum quod mollitia non, praesentium cupiditate commodi fuga quos at aut aspernatur eum temporibus incidunt dolorum quae! Nihil, eligendi facere?"
-  },
-  {
-    "title": "Eius, facere? Veritatis, fuga.",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Maxime suscipit delectus sed iste natus, architecto saepe dolore at nam sequi deleniti velit soluta debitis voluptates eius, quam totam, libero nesciunt. Perspiciatis iste, doloribus mollitia blanditiis nesciunt excepturi fugiat."
-  },
-  {
-    "title": "Alias quam quaerat iste.",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Voluptates id repudiandae ducimus laboriosam ea maxime ut aut, nemo iste facere placeat voluptatem ullam quisquam dolor excepturi ab nulla minus quia porro. Reprehenderit eius iusto, inventore vel sit consequatur."
-  },
-  {
-    "title": "Possimus laudantium dolor alias!",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Unde quibusdam quae iure atque odit voluptatem quis ut? Eius numquam reiciendis, ad tenetur error, ea tempora nostrum itaque in delectus, atque id ducimus dicta cumque obcaecati eum! Dignissimos, voluptas."
-  },
-  {
-    "title": "Reprehenderit, ratione. Voluptatem, quam.",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Facere sequi iusto praesentium laboriosam hic nemo odit voluptas fugiat obcaecati nesciunt dolore unde deserunt, perferendis minima reiciendis magnam ratione beatae corporis error similique, quos aliquid. Voluptas impedit aut reprehenderit!"
-  },
-  {
-    "title": "A quaerat ipsa rem.",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Temporibus minus vitae exercitationem molestiae enim, ullam deleniti officiis consequuntur quam, cum, eligendi obcaecati delectus fugiat. Ipsam magnam inventore eum quod eaque explicabo dolorum voluptates possimus necessitatibus impedit, harum similique."
-  },
-  {
-    "title": "Ex ducimus repellat aut.",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Excepturi quidem suscipit sint et vitae vel, commodi odio maiores porro quod architecto? Voluptatibus enim quam officiis facilis ipsa a, fugit explicabo assumenda eaque laudantium! Doloribus sit accusamus obcaecati suscipit!"
-  },
-  {
-    "title": "Modi enim magnam quibusdam!",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Mollitia eius rem accusantium repudiandae, amet inventore omnis ullam veritatis sed sequi vel deserunt! Maiores, asperiores pariatur quas nihil accusamus tenetur dolorum quaerat voluptatem molestias quasi esse exercitationem corporis beatae."
-  },
-  {
-    "title": "Est numquam odit at.",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Alias, fugit dolore a architecto odio voluptates provident blanditiis voluptatibus fugiat dolorum magni quod magnam eveniet libero veritatis nobis exercitationem modi natus at officiis praesentium laboriosam inventore ullam culpa! Tempore!"
-  }
+    {
+        "title": "Lorem ipsum dolor sit.",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora possimus quisquam aut nobis veritatis cumque, est debitis eius a ipsum dicta quaerat ratione recusandae, beatae suscipit quae consequuntur iste accusantium?"
+    },
+    {
+        "title": "Necessitatibus veniam minima inventore.",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Pariatur quos culpa maxime eius numquam sunt dignissimos placeat eaque. Exercitationem ipsum architecto, quos accusantium saepe repudiandae, veniam odio possimus est dolorem cum mollitia eum laborum ut quia enim reprehenderit!"
+    },
+    {
+        "title": "Neque officia maxime alias?",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Optio, ullam repudiandae cupiditate itaque quasi impedit iure ratione voluptates fugiat consequatur delectus vitae expedita. Impedit, perferendis perspiciatis esse, nesciunt maxime quo magnam quos iusto aut dolores, accusantium ea assumenda!"
+    },
+    {
+        "title": "Cupiditate, rerum officiis. Quas!",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Perferendis quas eaque velit nostrum repudiandae id nisi facere recusandae, rerum quod mollitia non, praesentium cupiditate commodi fuga quos at aut aspernatur eum temporibus incidunt dolorum quae! Nihil, eligendi facere?"
+    },
+    {
+        "title": "Eius, facere? Veritatis, fuga.",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Maxime suscipit delectus sed iste natus, architecto saepe dolore at nam sequi deleniti velit soluta debitis voluptates eius, quam totam, libero nesciunt. Perspiciatis iste, doloribus mollitia blanditiis nesciunt excepturi fugiat."
+    },
+    {
+        "title": "Alias quam quaerat iste.",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Voluptates id repudiandae ducimus laboriosam ea maxime ut aut, nemo iste facere placeat voluptatem ullam quisquam dolor excepturi ab nulla minus quia porro. Reprehenderit eius iusto, inventore vel sit consequatur."
+    },
+    {
+        "title": "Possimus laudantium dolor alias!",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Unde quibusdam quae iure atque odit voluptatem quis ut? Eius numquam reiciendis, ad tenetur error, ea tempora nostrum itaque in delectus, atque id ducimus dicta cumque obcaecati eum! Dignissimos, voluptas."
+    },
+    {
+        "title": "Reprehenderit, ratione. Voluptatem, quam.",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Facere sequi iusto praesentium laboriosam hic nemo odit voluptas fugiat obcaecati nesciunt dolore unde deserunt, perferendis minima reiciendis magnam ratione beatae corporis error similique, quos aliquid. Voluptas impedit aut reprehenderit!"
+    },
+    {
+        "title": "A quaerat ipsa rem.",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Temporibus minus vitae exercitationem molestiae enim, ullam deleniti officiis consequuntur quam, cum, eligendi obcaecati delectus fugiat. Ipsam magnam inventore eum quod eaque explicabo dolorum voluptates possimus necessitatibus impedit, harum similique."
+    },
+    {
+        "title": "Ex ducimus repellat aut.",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Excepturi quidem suscipit sint et vitae vel, commodi odio maiores porro quod architecto? Voluptatibus enim quam officiis facilis ipsa a, fugit explicabo assumenda eaque laudantium! Doloribus sit accusamus obcaecati suscipit!"
+    },
+    {
+        "title": "Modi enim magnam quibusdam!",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Mollitia eius rem accusantium repudiandae, amet inventore omnis ullam veritatis sed sequi vel deserunt! Maiores, asperiores pariatur quas nihil accusamus tenetur dolorum quaerat voluptatem molestias quasi esse exercitationem corporis beatae."
+    },
+    {
+        "title": "Est numquam odit at.",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Alias, fugit dolore a architecto odio voluptates provident blanditiis voluptatibus fugiat dolorum magni quod magnam eveniet libero veritatis nobis exercitationem modi natus at officiis praesentium laboriosam inventore ullam culpa! Tempore!"
+    }
 ]

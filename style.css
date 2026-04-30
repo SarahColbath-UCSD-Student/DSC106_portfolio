@@ -77,11 +77,26 @@ div {
     article {
       grid-template-rows: subgrid;
       grid-row: span 3;
+
+      img {
+        scale: auto;
+        max-width: 15em;
+      }
     }
 
-    h2 {
-      margin: 0;
-      height: 80px; /* ensuring that titles stay aligned when the word wrapping is strange */
+    h1, h2, h3, h4, h5, h6 {
+      &.project {
+        margin: 0;
+        min-height: 2.5em; /* ensuring that titles stay aligned when the word wrapping is strange */
+      }
+    }
+
+    img {
+      &.project {
+        margin: 0;
+        min-height: 10em; /* ensuring that titles stay aligned when the word wrapping is strange */
+      }
+    }
     }
   }
 
@@ -130,18 +145,23 @@ select {
 
 dl {
   display:grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 1em;
+  font-family: inherit;
 
   dt {
     display: grid;
     grid-template-columns: subgrid;
-    grid-row: 1 / 1;
+    grid-row: 1;
+    font-family: inherit;
+    text-align: left;
   }
 
-  /*decided on a smaller submit button as I subjectively believe it looks nicer*/
   dd {
-    grid-row: 2 / 2;
+    display: grid;
+    grid-row: 2;
+    text-align: left;
     font-size: 120%;
+    font-family: inherit;
   }
 }

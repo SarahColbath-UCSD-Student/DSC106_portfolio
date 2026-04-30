@@ -3,13 +3,13 @@
         "title": "Bulk Purchasing Across 3 Stores",
         "year": "2026",
         "image": "../images/bulkpurchasing.jpg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora possimus quisquam aut nobis veritatis cumque, est debitis eius a ipsum dicta quaerat ratione recusandae, beatae suscipit quae consequuntur iste accusantium?"
+        "description": "An analysis of grocery pricing by weight across Target, Walmart, and Whole Foods. The analysis aims to answer the question of which stores provide the best deals for purchasing in bulk. \nLink Coming Soon"
     },
     {
-        "title": "Necessitatibus veniam minima inventore.",
+        "title": "Analysis of Police Complaints by Race in NYC",
         "year": "2026",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Pariatur quos culpa maxime eius numquam sunt dignissimos placeat eaque. Exercitationem ipsum architecto, quos accusantium saepe repudiandae, veniam odio possimus est dolorem cum mollitia eum laborum ut quia enim reprehenderit!"
+        "image": "../images/analysisofpolicecomplaints.jpg",
+        "description": "Visualizations exploring civilian police complaints by race. The project explores dishonest visualization techniques to understand how they can be avoided.<a href=\"https://pratham-aggr.github.io/dsc106_project2/ target=\"_blank\">Link</a>"
     },
     {
         "title": "Neque officia maxime alias?",

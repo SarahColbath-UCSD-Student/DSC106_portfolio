@@ -127,3 +127,21 @@ label {
 select {
   font-size: 80%;
 }
+
+dl {
+  display:grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em;
+
+  dt {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-row: 1 / 1;
+  }
+
+  /*decided on a smaller submit button as I subjectively believe it looks nicer*/
+  dd {
+    grid-row: 2 / 2;
+    font-size: 120%;
+  }
+}

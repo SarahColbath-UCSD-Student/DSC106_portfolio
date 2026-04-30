@@ -92,11 +92,9 @@ div {
     }
 
     img {
-      &.project {
         margin: 0;
-        min-height: 10em; /* ensuring that titles stay aligned when the word wrapping is strange */
+        min-height: 7.5em; /* ensuring that titles stay aligned when the word wrapping is strange */
       }
-    }
     }
   }
 

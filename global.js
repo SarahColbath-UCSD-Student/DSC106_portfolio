@@ -99,14 +99,16 @@ export async function fetchJSON(url) {
   }
 }
 
-export function renderProjects(project, containerElement) {
+export function renderProjects(projects, containerElement) {
   containerElement.innerHTML = '';
-  console.log(project.image);
-  const article = document.createElement('article');
-  article.innerHTML = `
-    <h3>${project.title}</h3>
-    <img src="${project.image}" alt="${project.title}">
-    <p>${project.description}</p>
-  `;
-  containerElement.appendChild(article);
+  for (let project of projects)
+  {
+    const article = document.createElement('article');
+    article.innerHTML = `
+      <h3>${project.title}</h3>
+      <img src="${project.image}" alt="${project.title}">
+      <p>${project.description}</p>
+    `;
+    containerElement.appendChild(article);
+  }
 }

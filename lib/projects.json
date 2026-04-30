@@ -2,13 +2,13 @@
     {
         "title": "Bulk Purchasing Across 3 Stores",
         "year": "2026",
-        "image": "https://github.com/SarahColbath-UCSD-Student/DSC106_portfolio/blob/main/images/analysisofpolicecomplaints.jpg",
+        "image": "https://raw.githubusercontent.com/SarahColbath-UCSD-Student/DSC106_portfolio/refs/heads/main/images/bulkpurchasing.jpg",
         "description": "An analysis of grocery pricing by weight across Target, Walmart, and Whole Foods. The analysis aims to answer the question of which stores provide the best deals for purchasing in bulk. \nLink Coming Soon"
     },
     {
         "title": "Analysis of Police Complaints by Race in NYC",
         "year": "2026",
-        "image": "/images/analysisofpolicecomplaints.jpg",
+        "image": "https://raw.githubusercontent.com/SarahColbath-UCSD-Student/DSC106_portfolio/refs/heads/main/images/analysisofpolicecomplaints.jpg",
         "description": "Visualizations exploring civilian police complaints by race. The project explores dishonest visualization techniques to understand how they can be avoided.<a href=\"https://pratham-aggr.github.io/dsc106_project2\" target=\"_blank\">Link</a>"
     },
     {

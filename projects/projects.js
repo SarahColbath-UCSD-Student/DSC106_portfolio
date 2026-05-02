@@ -46,14 +46,19 @@ function renderPieChart(projectsGiven) {
     // TODO: clear up paths and legends
     let legend = d3.select('.legend');
     let newSVG = d3.select('svg');
+    let colors = d3.scaleOrdinal(d3.schemeTableau10); 
+
     newSVG.selectAll('path').remove();
     legend.html('');
     // update paths and legends, refer to steps 1.4 and 2.2
-    let colors = d3.scaleOrdinal(d3.schemeTableau10); 
+    
+
+
 
     newArcs.forEach((arc, idx) => {
     newSVG.append('path').attr('d', arc).attr('fill', colors(idx));
     });
+
 
     newData.forEach((d, idx) => {
     legend
@@ -84,3 +89,23 @@ function updateTitle () {
     let projCount = document.querySelectorAll(".project").length;
     title.text(projCount + " Projects")
 }
+
+let selectedIndex = -1;
+let i = 0;
+
+let newRolledData = d3.rollups(
+    projects,
+    (v) => v.length,
+    (d) => d.year,
+);
+// re-calculate data
+let newData = newRolledData.map(([year, count]) => {
+    return { value: count, label: year };
+});
+let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
+
+let newSliceGenerator = d3.pie().value((d) => d.value);
+let newArcData = newSliceGenerator(newData);
+let newArcs = newArcData.map((d) => arcGenerator(d));
+let colors = d3.scaleOrdinal(d3.schemeTableau10);
+

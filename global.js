@@ -101,10 +101,16 @@ export async function fetchJSON(url) {
 
 export function renderProjects(projects, containerElement, headingLevel = 'h2') {
   containerElement.innerHTML = '';
+  if (containerElement != null)
+  {
+    containerElement.innerHTML = '';
+  }
+  
   for (let project of projects)
   {
     const article = document.createElement('article');
     const headings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+
     if (!project.title)
     {
       project.title = "Title Pending";
@@ -125,6 +131,7 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
       <${headingLevel} class='project'>${project.title}</${headingLevel}>
       <img src="${project.image}" class='project-img' alt="${project.title}">
       <p class='project-article'>${project.description}</p>
+      <p class='year'>c. ${project.year}</p>
     `;
     containerElement.appendChild(article);
   }

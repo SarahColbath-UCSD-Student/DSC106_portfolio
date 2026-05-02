@@ -81,6 +81,11 @@ div {
       margin: 0;
       padding: 0.5em;
       box-sizing: border-box;
+      
+      p.year {
+        color: var(--color-accent);
+        font-style: italic;
+      }
 
       img {
         display: block;
@@ -99,7 +104,6 @@ div {
     }
 
 
-    }
   }
 
   &.work-history {
@@ -166,4 +170,48 @@ dl {
     font-size: 120%;
     font-family: inherit;
   }
+}
+
+#projects-pie-plot {
+  max-width: 20em;
+  margin-block: 2em;
+  flex: 0.5;  
+  min-width: 5em;
+  margin-left: 1em;
+}
+
+span {
+  display: inline-flex;
+  &.swatch {
+    height: 10px;
+    width: 10px;
+    aspect-ratio: 1 / 1;
+    background-color: var(--color);
+    border-radius: 20%;
+  }
+}
+
+.legend {
+    margin: 0em 2em;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(7em, 3fr));
+    border-style: solid;
+    border-color: color-mix(in oklch, oklch(80% 0.01 205), canvas 85%);
+    gap: 0.35em;
+    flex: 1;
+    max-width: 50%;
+
+    li.legendsubelement {
+      grid-template-rows: subgrid;
+      display: flex;
+      align-items: center;
+      gap: 0.2em;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+}
+
+div.container {
+  display: flex;
+  align-items: center;
 }

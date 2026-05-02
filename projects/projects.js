@@ -36,7 +36,7 @@ function renderPieChart(projectsGiven) {
     );
     // re-calculate data
     let newData = newRolledData.map(([year, count]) => {
-        return { value: count, label: year }; // TODO
+        return { value: count, label: year };
     });
     let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
     // re-calculate slice generator, arc data, arc, etc.
@@ -65,9 +65,22 @@ function renderPieChart(projectsGiven) {
 }
 renderPieChart(projects);
 
-searchInput.addEventListener('change', (event) => {
-  let filteredProjects = setQuery(event.target.value);
+searchInput.addEventListener('input', (event) => {
+  query = event.target.value;
+  let filteredProjects = projects.filter((project) => {
+    let values = Object.values(project).join('\n').toLowerCase();
+    return values.includes(query.toLowerCase());
+  });
   // re-render legends and pie chart when event triggers
-  renderProjects(filteredProjects, projectsContainer, 'h2');
+  renderProjects(filteredProjects, projectsContainer, 'h3');
   renderPieChart(filteredProjects);
+  updateTitle();
 });
+
+updateTitle();
+
+function updateTitle () {
+    let title = d3.select('.projects-title');
+    let projCount = document.querySelectorAll(".project").length;
+    title.text(projCount + " Projects")
+}

@@ -52,9 +52,6 @@ function renderPieChart(projectsGiven) {
     legend.html('');
     // update paths and legends, refer to steps 1.4 and 2.2
     
-
-
-
     newArcs.forEach((arc, idx) => {
     newSVG.append('path').attr('d', arc).attr('fill', colors(idx));
     });

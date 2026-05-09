@@ -70,15 +70,46 @@ function renderCommitInfo(data, commits) {
   dl.append('dt').html('Most active time');
   let new_date = new Date();
   new_date.setHours(avg_time);
-  dl.append('dd').text(`${new_date.getHours()}:${new_date.getMinutes()} ${timestamp}`);
+  dl.append('dd').text(`${new_date.toTimeString().split(' ')[0].split(',')} ${timestamp}`);
 
   dl.append('dt').html('Last Commit');
   let time_since_last = d3.min(data, d => (Date.now() - d.datetime));
-  console.log(Date(time_since_last));
-  dl.append('dd').text()
+  let time_days = new Date(time_since_last);
+  dl.append('dd').text(`${Math.round(time_days / 3600000)} Hours Ago`);
+}
+
+//Datetime Scatter Plot
+function renderScatterPlot(data, commits) {
+  const margin = { top: 10, right: 10, bottom: 30, left: 20 };
+  const width = 1000;
+  const height = 600;
+  const svg = d3
+    .select('#chart')
+    .append('svg')
+    .attr('viewBox', `0 0 ${width} ${height}`)
+    .style('overflow', 'visible');
+  const xScale = d3
+    .scaleTime()
+    .domain(d3.extent(commits, (d) => d.datetime))
+    .range([0, width])
+    .nice();
+
+  const yScale = d3.scaleLinear().domain([0, 24]).range([height, 0]);
+
+  const dots = svg.append('g').attr('class', 'dots');
+
+  dots
+    .selectAll('circle')
+    .data(commits)
+    .join('circle')
+    .attr('cx', (d) => xScale(d.datetime))
+    .attr('cy', (d) => yScale(d.hourFrac))
+    .attr('r', 5)
+    .attr('fill', 'steelblue');
 }
 
 let data = await loadData();
 let commits = processCommits(data);
 
 renderCommitInfo(data, commits);
+renderScatterPlot(data, commits);

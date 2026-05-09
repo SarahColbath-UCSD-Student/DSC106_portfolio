@@ -12,6 +12,7 @@ body {
   max-width: 100ch;
   margin-inline: auto;
   padding: 0px 10px;
+  margin-bottom: 10%;
 }
 
 nav {
@@ -145,30 +146,37 @@ label {
     font-size: 80%;
   }
 }
+
 select {
   font-size: 80%;
 }
 
 dl {
   display:grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 50% ;
+  grid-template-columns: auto auto auto auto;
   gap: 1em;
   font-family: inherit;
+  padding-bottom: 2fr;
+  text-align: left;
 
   dt {
     display: grid;
     grid-template-columns: subgrid;
     grid-row: 1;
     font-family: inherit;
-    text-align: left;
+    font-weight: bold;
   }
 
   dd {
     display: grid;
+    grid-template-columns: subgrid;
     grid-row: 2;
-    text-align: left;
-    font-size: 120%;
+    font-size: 100%;
     font-family: inherit;
+    min-height: 4fr;
+    margin-left: 0%;
+    
   }
 }
 
@@ -222,7 +230,33 @@ svg {
       opacity: 0.5;
     }
   }
+  .gridlines {
+    opacity: 25%;
+  }
 }
+
+dl.info {
+  display: grid;
+  
+  &.tooltip {
+    position: fixed;
+    top: 1em;
+    left: 1em;
+  }
+}
+
+
+
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5);
+}
+
 
 path {
   transition: 300ms;
@@ -235,4 +269,33 @@ path {
   &:is(path) {
     fill: var(--color);
   }
+}
+
+dl.info {
+  /* ... other styles ... */
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
+}
+
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -8; /* 5 + 3 */
+  }
+}
+
+.selection {
+  fill-opacity: 0.1;
+  stroke: black;
+  stroke-opacity: 0.7;
+  stroke-dasharray: 5 3;
+  animation: marching-ants 2s linear infinite;
+}
+
+circle.selected {
+  fill: var(--color-accent);
 }

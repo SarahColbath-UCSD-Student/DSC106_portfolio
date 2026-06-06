@@ -320,12 +320,16 @@ function updateScatterPlot(data, commits) {
   const spanHours = (end - start) / (1000 * 60 * 60);
   const xAxis = d3.axisBottom(xScale)
   console.log(spanHours);
-  if (spanHours > 48) {
-    xAxis
-      .tickFormat(d3.timeFormat("%b %d"));
-  } else if (spanHours > 730) {
+  if (spanHours > 1460) {
     xAxis
       .tickFormat(d3.timeFormat("%b"));
+  }
+  else if (spanHours > 48) {
+    xAxis
+      .tickFormat(d3.timeFormat("%b %d"));
+  } else {
+    xAxis
+      .tickFormat(d3.timeFormat("%b %d %H:%M"));
   }
 
   
@@ -364,6 +368,12 @@ function timeUpdate() {
   selectedTime.style.display = 'short';
   selectedTime.textContent = commitMaxTime.toLocaleString({dateStyle: 'short', timeStyle: 'short'});
   let filteredCommits = commits;
+  let lines = filteredCommits.flatMap((d) => d.lines);
+  let files = d3
+    .groups(lines, (d) => d.file)
+    .map(([name, lines]) => {
+      return { name, lines };
+  });
   filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
   updateScatterPlot(data, filteredCommits);
 }

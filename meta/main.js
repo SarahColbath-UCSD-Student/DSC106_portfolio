@@ -129,16 +129,19 @@ function renderScatterPlot(data, commits) {
     .axisLeft(yScale)
     .tickFormat((d) => String(d % 24).padStart(2, '0') + ':00');
   // Add X axis
+
   svg
     .append('g')
     .attr('transform', `translate(0, ${usableArea.bottom})`)
+    .attr('class', 'x-axis') // new line to mark the g tag
     .call(xAxis);
 
-  // Add Y axis
   svg
     .append('g')
     .attr('transform', `translate(${usableArea.left}, 0)`)
+    .attr('class', 'y-axis') // just for consistency
     .call(yAxis);
+
 
   const [minLines, maxLines] = d3.extent(sortedCommits, (d) => d.totalLines);
   const rScale = d3.scaleSqrt().domain([minLines, maxLines]).range([3, 10]);
@@ -147,7 +150,7 @@ function renderScatterPlot(data, commits) {
 
   dots
     .selectAll('circle')
-    .data(sortedCommits)
+    .data(sortedCommits, (d) => d.id)
     .join('circle')
     .attr('cx', (d) => xScale(d.datetime))
     .attr('cy', (d) => yScale(d.hourFrac))
@@ -270,3 +273,103 @@ let commits = processCommits(data);
 
 renderCommitInfo(data, commits);
 renderScatterPlot(data, commits);
+
+//Lab 8
+
+let commitProgress = 100;
+
+let timeScale = d3
+  .scaleTime()
+  .domain([
+    d3.min(commits, (d) => d.datetime),
+    d3.max(commits, (d) => d.datetime),
+  ])
+  .range([0, 100]);
+let commitMaxTime = timeScale.invert(commitProgress);
+
+function formatTime(minutes) {
+  const date = new Date(0, 0, 0, 0, minutes); // Set hours & minutes
+  return date.toLocaleString('en-US', { timeStyle: 'short' }); // Format as HH:MM AM/PM
+}
+
+let timeSlider = document.getElementById('commit-progress');
+let selectedTime = document.getElementById('commit-time');
+
+function updateScatterPlot(data, commits) {
+  const width = 1000;
+  const height = 600;
+  const margin = { top: 10, right: 10, bottom: 30, left: 20 };
+  const usableArea = {
+    top: margin.top,
+    right: width - margin.right,
+    bottom: height - margin.bottom,
+    left: margin.left,
+    width: width - margin.left - margin.right,
+    height: height - margin.top - margin.bottom,
+  };
+
+  const svg = d3.select('#chart').select('svg');
+
+  xScale = xScale.domain(d3.extent(commits, (d) => d.datetime));
+
+  const [minLines, maxLines] = d3.extent(commits, (d) => d.totalLines);
+  const rScale = d3.scaleSqrt().domain([minLines, maxLines]).range([2, 30]);
+
+  const [start, end] = xScale.domain();
+  
+  const spanHours = (end - start) / (1000 * 60 * 60);
+  const xAxis = d3.axisBottom(xScale)
+  console.log(spanHours);
+  if (spanHours > 48) {
+    xAxis
+      .tickFormat(d3.timeFormat("%b %d"));
+  } else if (spanHours > 730) {
+    xAxis
+      .tickFormat(d3.timeFormat("%b"));
+  }
+
+  
+  const xAxisGroup = svg.select('g.x-axis');
+  xAxisGroup.selectAll('*').remove();
+  xAxisGroup.call(xAxis);
+
+
+  const dots = svg.select('g.dots');
+
+  const sortedCommits = d3.sort(commits, (d) => -d.totalLines);
+  dots
+    .selectAll('circle')
+    .data(sortedCommits, (d) => d.id)
+    .join('circle')
+    .attr('cx', (d) => xScale(d.datetime))
+    .attr('cy', (d) => yScale(d.hourFrac))
+    .attr('r', (d) => rScale(d.totalLines))
+    .attr('fill', 'steelblue')
+    .style('fill-opacity', 0.7) // Add transparency for overlapping dots
+    .on('mouseenter', (event, commit) => {
+      d3.select(event.currentTarget).style('fill-opacity', 1); // Full opacity on hover
+      renderTooltipContent(commit);
+      updateTooltipVisibility(true);
+      updateTooltipPosition(event);
+    })
+    .on('mouseleave', (event) => {
+      d3.select(event.currentTarget).style('fill-opacity', 0.7);
+      updateTooltipVisibility(false);
+    });
+}
+
+function timeUpdate() {
+  commitProgress = timeSlider.value;
+  commitMaxTime = timeScale.invert(commitProgress);
+  selectedTime.style.display = 'short';
+  selectedTime.textContent = commitMaxTime.toLocaleString({dateStyle: 'short', timeStyle: 'short'});
+  let filteredCommits = commits;
+  filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
+  updateScatterPlot(data, filteredCommits);
+}
+console.log(document.readyState);
+
+timeUpdate();
+timeSlider.addEventListener('input', timeUpdate);
+
+

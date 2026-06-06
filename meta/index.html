@@ -10,6 +10,10 @@
 </head>
 <body>
     <h1>Meta</h1>
+    <div id="filter">
+        <label>Show commits until: <input type=range id="commit-progress" min="0" max="100">
+        <time id="commit-time"></time>
+        </div>
     <div id="stats"></div>
     <h2>Commits by time of day</h2>
     <div id="chart"></div>
@@ -21,10 +25,10 @@
 
     <dt>Date</dt>
     <dd id="commit-date"></dd>
-    <!-- Add: Time, author, lines edited -->
     </dl>
     <p id="selection-count">No commits selected</p>
     <dl id="language-breakdown" class="stats"></dl>
+
     
 </body>
 </html>

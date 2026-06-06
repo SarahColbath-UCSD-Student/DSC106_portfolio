@@ -49,7 +49,7 @@ let xScale = 0;
 let yScale = 0;
 function renderCommitInfo(data, commits) {
   // Create the dl element
-  const dl = d3.select('#stats').append('dl').attr('class', 'stats');
+  const dl = d3.select('#stats').append('dl').attr('class', 'stats table');
 
   // Add total LOC
   dl.append('dt').html('Total <abbr title="Lines of code">LOC</abbr>');
@@ -319,17 +319,13 @@ function updateScatterPlot(data, commits) {
   
   const spanHours = (end - start) / (1000 * 60 * 60);
   const xAxis = d3.axisBottom(xScale)
-  console.log(spanHours);
   if (spanHours > 1460) {
     xAxis
       .tickFormat(d3.timeFormat("%b"));
   }
-  else if (spanHours > 48) {
+  else {
     xAxis
       .tickFormat(d3.timeFormat("%b %d"));
-  } else {
-    xAxis
-      .tickFormat(d3.timeFormat("%b %d %H:%M"));
   }
 
   
@@ -362,22 +358,52 @@ function updateScatterPlot(data, commits) {
     });
 }
 
+function updateFileDisplay(filteredCommits) {
+  let lines = filteredCommits.flatMap((d) => d.lines);
+let files = d3
+  .groups(lines, (d) => d.file)
+  .map(([name, lines]) => {
+    return { name, lines };
+  })
+  .sort((a, b) => b.lines.length - a.lines.length);
+  let colors = d3.scaleOrdinal(d3.schemeTableau10);
+  let filesContainer = d3
+  .select('#files')
+  .selectAll('div')
+  .data(files, (d) => d.name)
+  .join(
+    // This code only runs when the div is initially rendered
+    (enter) =>
+      enter.append('div').call((div) => {
+        div.append('dt').append('code');
+        div.append('dd');
+      }),
+  )
+
+
+  filesContainer.select('dt').html((d) => `<code>${d.name}</code><small>${d.lines.length} lines</small>`);
+  
+  filesContainer
+  .select('dd')
+  .selectAll('div')
+  .data((d) => d.lines)
+  .join('div')
+  .attr('class', 'loc')
+  .attr('style', (d) => `--color: ${colors(d.type)}`);
+}
+
 function timeUpdate() {
   commitProgress = timeSlider.value;
   commitMaxTime = timeScale.invert(commitProgress);
   selectedTime.style.display = 'short';
   selectedTime.textContent = commitMaxTime.toLocaleString({dateStyle: 'short', timeStyle: 'short'});
   let filteredCommits = commits;
-  let lines = filteredCommits.flatMap((d) => d.lines);
-  let files = d3
-    .groups(lines, (d) => d.file)
-    .map(([name, lines]) => {
-      return { name, lines };
-  });
+
   filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
   updateScatterPlot(data, filteredCommits);
+  updateFileDisplay(filteredCommits)
 }
-console.log(document.readyState);
+
 
 timeUpdate();
 timeSlider.addEventListener('input', timeUpdate);
